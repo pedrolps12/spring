@@ -1,0 +1,296 @@
+/*
+  Theme Name: Crown - Audio Equipments HTML Template
+  Theme URL: http://themewar.com/html/crown
+  Author: ThemeWar
+  Author URI: http://themewar.com/
+  Description: Audio Equipments HTML Template
+  Version: 1.0
+*/
+
+/*=======================================================================
+[Table of contents]
+=========================================================================
+1. Fonts
+2. Normalization
+3. Section setup
+4. Margin and padding setup
+4. Button
+==========================================================================*/
+
+/*=======================================================================
+// Fonts
+=========================================================================*/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,400italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@font-face {
+    font-family: '../../../fontsBold';
+    src: url('../../fonts/NexaBoldd41d.eot?#iefix') format('embedded-opentype'),  
+        url('../../fonts/NexaBold.otf')  format('opentype'),
+        url('../../fonts/NexaBold.woff') format('woff'), 
+        url('../../fonts/NexaBold.ttf')  format('truetype'),
+        url('../../fonts/NexaBold.svg#NexaBold') format('svg');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'NexaLight';
+    src: url('NexaLightd41d.html?#iefix') format('embedded-opentype'),  
+        url('../../fonts/NexaLight.otf')  format('opentype'),
+        url('../../fonts/NexaLight.woff') format('woff'), 
+        url('../../fonts/NexaLight.ttf')  format('truetype'), 
+        url('../../fonts/NexaLight.svg#NexaLight') format('svg');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'texgyreadventorbold';
+    src: url('../../fonts/texgyreadventor-bold-webfont.eot');
+    src: url('../../fonts/texgyreadventor-bold-webfontd41d.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/texgyreadventor-bold-webfont.woff') format('woff'),
+        url('../../fonts/texgyreadventor-bold-webfont.ttf') format('truetype'),
+        url('../../fonts/texgyreadventor-bold-webfont.svg#texgyreadventorbold') format('svg');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'texgyreadventorregular';
+    src: url('../../fonts/texgyreadventor-regular-webfont.eot');
+    src: url('../../fonts/texgyreadventor-regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/texgyreadventor-regular-webfont.woff') format('woff'),
+        url('../../fonts/texgyreadventor-regular-webfont.ttf') format('truetype'),
+        url('../../fonts/texgyreadventor-regular-webfont.svg#texgyreadventorregular') format('svg');
+    font-weight: 400;
+}
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.texgyreadventorbold{
+    font-family: 'texgyreadventorbold';
+}
+.texgyreadventorregular{
+    font-family: 'texgyreadventorregular';
+}
+.NexaBold{
+    font-family: 'NexaBold';
+}
+.NexaLight{
+    font-family: 'NexaLight';
+}
+.lato{
+    font-family: 'Lato', sans-serif;
+}
+
+/*=======================================================================
+// Normalization
+=========================================================================*/
+htm,body{
+    color: #888888;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: .35px;
+} 
+a{
+    color: #222222;
+    transition: all ease 500ms;
+    -moz-transition: all ease 500ms;
+    -webkit-transition: all ease 500ms;
+    -ms-transition: all ease 500ms;
+    -o-transition: all ease 500ms;
+}
+a:hover{
+    text-decoration: none;
+    color: #f7941d;
+}
+a:focus{
+    outline: 0;
+    text-decoration: none;
+}
+ul,
+ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+button, input{
+    border: none;
+
+}
+button{
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222222;
+    margin: 0;
+    line-height: .8;
+}
+
+/*=======================================================================
+// Section Setup
+=========================================================================*/
+.commonSec{
+    padding: 100px 0;
+}
+.commonSec2{
+    padding: 80px 0;
+}
+.sectionTitle{
+    margin-bottom: 52px;
+}
+.sectionTitle h2{
+    font-size: 36px;
+    color: #222222;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.SecBar{
+    margin-bottom: 5px;
+}
+.SecBar i{
+    line-height: .8;
+    margin: -2px;
+    color: #80a261;
+}
+.sectionTitle p{
+    font-style: italic;
+    letter-spacing: .35px;
+}
+.bggray{
+    background: #eeeeee;
+}
+/*=======================================================================
+//  Margin and padding setup
+=========================================================================*/
+.noPadding{
+    padding: 0px !important;
+}
+.noPaddingBottom{
+    padding-bottom: 0px !important;
+}
+.noPaddingLeft{
+    padding-left: 0px !important;
+}
+.noPaddingRight{
+    padding-right: 0px !important;
+}
+.noMarginBottom{
+    margin-bottom: 0px !important;
+}
+.noMarginRight{
+    margin-right: 0px !important;
+}
+.noPaddingTop{
+    padding-top: 0px !important;
+}
+
+/*=======================================================================
+//  Button
+=========================================================================*/
+.crownBtn{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: .35px;
+    text-transform: uppercase;
+    height: 48px;
+    background: #749a50;
+    display: block;
+    padding: 19px 53px;
+    line-height: .8;
+}
+.crownBtn:hover{
+    background: #DB9339;
+    color: #fff;
+}
+.crownBtn1 {
+    border: 2px solid #749a50;
+    border-radius: 30px;
+    color: #34322f;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    height: 50px;
+    line-height: 0.8;
+    margin: 8px 0;
+    padding: 15px 95px 10px 28px;
+    position: relative;
+}
+.crownBtn1 i {
+    background: #749a50;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 15px 26px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.crownbtn {
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 12px 43px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.btnBlack {
+    background: #333333;
+    color: #fff;
+}
+.btnBlack:hover{
+    background: #db9339;
+    color: #fff;
+}
+.btnOrange {
+    background: #db9339;
+    color: #fff;
+}
+.btnOrange:hover{
+    background:#333333;
+    color: #fff;
+}
+.crownbtn_squre {
+    background: #da9339;
+    color: #ffffff;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 42px;
+    letter-spacing: 0.35px;
+    padding: 16px 30px;
+    text-transform: uppercase;
+    line-height: .8;
+}
+.crownbtn_squre:hover{
+    background: #333;
+    color: #fff;
+}
+
+/*=======================================================================
+//  Overlay
+=========================================================================*/
+.overlayb30{
+    position: relative;
+}
+.overlayb30:before{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: '';
+    background: rgba(0, 0, 0, .30);
+}
+
+

@@ -1,0 +1,123 @@
+<div th:fragment="header" th:remove="tag">
+	<!--Preloader start-->
+    <div class="preloader">
+        <div class="preloaderIn">
+            <img th:src="@{/../img/preloader.gif}" src="img/preloader.gif" alt="" />
+        </div>
+    </div>
+    <!--Preloader End-->
+    
+    
+    <!--Header Topbar start-->
+    <section class="headerTop">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-8 mobileClass">
+                    <div class="singleAds">
+                        <i class="fa fa-comments"></i>
+                        <p><span>Email:</span>pedrolps@gmail.com</p>
+                    </div>
+                    <div class="singleAds">
+                        <i class="fa fa-phone"></i>
+                        <p><span>Telefono:</span>(01) 456 23 23</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-4 text-right mobileClass">
+                	<!-- 
+                    <div class="singleAccInfo">
+                        <i class="fa fa-heart"></i>
+                        <a href="#">My Wishlist</a>
+                    </div>
+                     -->
+                    <div class="singleAccInfo">
+                        <i class="fa fa-unlock-alt"></i>
+                        <a th:href="@{/login}" href="#">Iniciar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Header Topbar End-->
+    
+    <!--header middle start-->
+    <section class="headerMiddle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-2">
+                    <div class="logo">
+                        <a href="index-2.html">
+                            <img src="../img/logo1x.png" style="min-width:176px;" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="headerSearch">
+                        <form action="#" method="post">
+                            <select id="search_option">
+                                <option value="1" selected="selected">Seleccionar</option>
+                                <option value="2">Accesorios Laptop</option>
+                                <option value="3">Cámaras WebCam</option>
+                                <option value="4">Discos Duros</option>
+                                <option value="5">Laptops</option>
+                                <option value="6">Memorias RAM </option>
+                                <option value="7">Maletines & Fundas</option>
+                                <option value="8">Monitores </option>
+                                
+                            </select>
+                            <input type="search" placeholder=" Busqueda de productos " />
+                            <button type="submit" class="montserrat">buscar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-3">
+                    <div class="cartBtnh home1">
+                        <a href="#">02 Items <i class="fa fa-shopping-basket"><span>02 Items </span></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--header middle End-->
+    
+    <!--Header start-->
+    <header class="header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <nav class="mainnav1">
+                        <div class="mobileMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul>
+                            <li class="has-menu-items active"><a href="#">inicio</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index-2.html">Home One</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-menu-items"><a href="#">categorías</a>
+                                <ul class="sub-menu">
+                                    <li><a th:href="@{/client/product}" href="#">Categoría 1</a></li>                                    
+                                </ul>
+                            </li>
+                            <li class="has-menu-items"><a href="#">noticias</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Computación</a></li>
+                                    <li><a href="#">Exclusivos</a></li>
+                                </ul>
+                            </li>
+                            <li><a th:href="@{/client/contact}" href="contact.html">contáctenos</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h2 class="livechat">
+                        <a  th:href="@{/client/product}" href="#"><i class="fa fa-shopping-bag"></i> OFERTAS</a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Header End-->
+</div>

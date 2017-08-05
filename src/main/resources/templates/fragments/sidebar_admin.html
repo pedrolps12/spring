@@ -1,0 +1,57 @@
+<div th:fragment="sidebar">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu" style="margin-top: -2px;">
+            	
+	            <li  class="nav-header">
+	                    <div class="dropdown profile-element">
+	                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+	                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><div sec:authentication="name"></div></strong>
+	                             </span> <span class="text-muted text-xs block">Administrador <b class="caret"></b></span> </span> </a>
+	                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+	                                <li>
+	                                	<a style="padding-top:0px;padding-bottom:0px;">
+	                                	<form th:action="@{/logout}" method="post">
+	                                		<input style="border:0px;background:transparent;width:100%;text-align:left;" class="clearfix" type="submit" value="Logout">					                	                	
+					        			</form>
+					        			</a>
+					        		</li>
+	                            </ul>
+	                    </div>
+	                    <div class="logo-element">
+	                        IN+
+	                    </div>
+	            </li>
+                
+                <hr style="margin:0;padding:0px;" />
+                <li prop1="/" >
+                    <a th:href="@{/admin/home}" href="/admin/home"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span> </a>
+                </li>
+                <li prop1="Usuarios">
+                    <a th:href="@{/admin/user}" href="/usuarios"><i class="fa fa-user-circle"></i> <span class="nav-label">Usuarios</span></a>
+                </li>   
+                <li prop1="catprod">
+                    <a href="#"><i class="fa fa fa-cube"></i> <span class="nav-label">Productos</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse" style="height: 0px;">
+                        <li prop1="Categorias"><a th:href="@{category}" href="#">Listado Categorias</a></li>
+                        <li prop1="Productos"><a th:href="@{product}" href="#">Listado Productos</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Proveedores</span> </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-area-chart"></i> <span class="nav-label">Ventas</span> </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">Configuraciones</span> </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+<script>
+    
+    
+</script>

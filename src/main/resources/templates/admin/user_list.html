@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>PROYECTO | USUARIOS</title>
+    <div th:replace="fragments/css_basics :: assets"></div>
+    <link th:href="@{/css/plugins/dataTables/datatables.min.css}" href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+</head>
+<body  class="fixed-nav md-skin">
+<div id="wrapper">
+    <!-- SIDEBAR -->
+    <div th:replace="fragments/sidebar_admin :: sidebar"></div>
+    <!-- END SIDEBAR-->
+    <div id="page-wrapper" class="gray-bg">
+        <!-- NAV -->
+        <div th:replace="fragments/nav_admin :: nav"></div>
+        <!-- END NAV-->        
+        <div class="wrapper wrapper-content fadeInLeft">                
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h2>Listado de Usuarios </h2>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4 col-sm-offset-4">
+                                	<a class="btn btn-info" style="width:100%;" th:href="@{user/add}" href="#"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Usuario </a>
+                                </div>
+                                <div class="col-sm-3">
+                                    
+                                </div>
+                            </div>
+                            <div class="container-table">                        	
+                            	<div class="table-responsive">
+		                        	<table class="table  table-bordered table-hover dataTables-user">
+		                            </table>
+		                        </div>
+		                    </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+        </div>
+        <div class="footer">
+            <div class="pull-right">                
+            </div>
+            <div>
+                <strong>Copyright</strong> CompuFy Solutions &copy; 2017
+            </div>
+        </div>
+
+    </div>
+</div>
+	<div th:replace="fragments/js_basics :: assets"></div>
+	<script th:src="@{/js/plugins/dataTables/datatables.min.js}" src="js/plugins/dataTables/datatables.min.js"></script>
+	<script th:src="@{/js/plugins/dataTables/jquery.spring-friendly.js}" type="text/javascript"></script>	
+	<!-- Sweet alert -->
+	<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}" src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script>
+	
+		function modalDel(obj) {
+			button = $(obj);
+		    swal({
+		        title: "Estas Seguro?",
+		        text: "El registro y toda su información seran eliminados",
+		        type: "warning",
+		        showCancelButton: true,
+		        confirmButtonColor: "#DD6B55",
+		        confirmButtonText: "Eliminar",
+		        cancelButtonText: "Cancelar",
+		        closeOnConfirm: false
+		    }, function (isConfirm) {
+		    	if (isConfirm) {
+		    		console.log(button.attr("prop"));			    		
+		    		deleteUsuario(button.attr("prop"));
+	            }			        
+		    });		    
+		};
+		function deleteUsuario(action){
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			$.ajax({
+			    url: action,
+			    method: 'delete',
+			    beforeSend: function(xhr) {
+			    	xhr.setRequestHeader(header, token);
+			    },
+			    success: function(result) {
+			    	swal("Borrado", "El registro ha sido eliminado", "success");
+			    	$('.dataTables-user').DataTable().ajax.reload();
+			    }
+			});
+		}
+		$(function() {
+			/*
+			$('.dataTables-user').DataTable({
+                pageLength: 25,
+                responsive: true,
+            });
+			*/
+			var table = $('.dataTables-user').DataTable({
+				"ajax": "/admin/user/table",
+				"language": {
+		            "url": "/js/Spanish.json",
+		        },
+		        //"processing": true,
+		        "serverSide": true,
+				columns: [
+					{ data: "id", "className": "text-center",width:40, "title":"Item"
+						,render : function(data, type, row, meta) {
+							return meta.row + meta.settings._iDisplayStart + 1;
+						}
+					},
+			      	{ data: "firstname" , "title":"Nombres" },
+					{ data: "lastname", "title":"Apellidos" },
+					{ data: "email" , "title":"Correo" },	
+					{
+						// add another column which will not be persisted on the server-side
+						data : 'anothercolumn',
+						"title":"Acciones",
+						orderable : false,
+						searchable : false,
+						"className": "text-center",
+						"width": "18%",
+						
+						render : function(data, type, row) {
+							return row.id ? '<a class="btn btn-xs btn-info" href="/admin/user/'+ row.id + '">Modificar</a> <button onclick="modalDel(this)" type="button" class="btn btn-xs btn-danger demoDel" prop="/admin/user/'+ row.id + '">Eliminar</button>' : '';							
+						}
+					}],
+					"adjust":"draw",
+		 	});
+			
+			
+			
+		});
+	</script>
+</body>
+</html>

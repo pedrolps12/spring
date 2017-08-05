@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECTO | USUARIOS</title>
+    <div th:replace="fragments/css_basics :: assets"></div>       
+</head>
+<body  class="fixed-nav md-skin">
+<div id="wrapper">
+    <!-- SIDEBAR -->
+    <div th:replace="fragments/sidebar_admin :: sidebar"></div>
+    <!-- END SIDEBAR-->
+    <div id="page-wrapper" class="gray-bg">
+        <!-- NAV -->
+        <div th:replace="fragments/nav_admin :: nav"></div>
+        <!-- END NAV-->        
+        <div class="wrapper wrapper-content fadeInLeft">
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <form th:method="PUT" th:action="@{/admin/user/__${user.id}__}" th:object="${user}"  name="frmAddUser" class="form-horizontal">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h2>Editar Usuario</h2><span style="line-height:" class="label label-primary">CS+</span>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                <div class="ibox-content">                                    
+                                        <input type="hidden" name="ubigeo" id="ubigeo" th:value="${user.ubigeo}">
+                                        <input type="hidden"  name="id" th:value="${user.id}"> 
+                                        <div class="row">
+                                        	<div class="col-lg-12 ">
+											<div class="panel panel-default">
+												<div class="panel-heading">Datos Personales</div>
+												<div class="panel-body">
+													<div class="form-group">
+			                                            <label class="col-lg-2 control-label">Nombres</label>
+			                                            <div class="col-lg-10">
+			                                                <input name="firstName" required autofocus th:field="${user.firstname}" th:value="${user.firstname}" type="text" placeholder="Nombres" class="form-control">                                                 
+			                                            </div>
+			                                        </div>
+			                                        <div class="form-group">
+			                                            <label class="col-lg-2 control-label">Apellidos</label>
+			                                            <div class="col-lg-10">
+			                                                <input name="lastName" required th:field="${user.lastname}" th:value="${user.lastname}"  type="text" placeholder="Apellidos" class="form-control">                                                 
+			                                            </div>
+			                                        </div>
+			                                        <div class="form-group">
+			                                            <label class="col-lg-2 control-label">Correo</label>
+			                                            <div class="col-lg-4">
+			                                                <input name="email" type="email" th:value="${user.email}" placeholder="Correo" class="form-control">
+			                                            </div>                                      
+			                                        </div>
+			                                        <div class="form-group">
+			                                            <label class="col-lg-2 control-label">Departamento</label>
+			                                        	<div class="col-lg-2">
+			                                                <select name="departamento" required id="departamento" class="form-control">
+			                                                	<option th:each="dept : ${departamentos}" th:selected="${dept[0] == #strings.substring(user.ubigeo,0,2)}"  th:value="${dept[0]}" th:text="${dept[1]}">
+			                                                	</option>
+			                                                </select>
+			
+			                                            </div>
+			                                            <label class="col-lg-2 control-label">Provincia</label>
+			                                            <div class="col-lg-2">
+			                                                <select name="provincia" required id="provincia" class="form-control">
+			                                                </select>
+			                                            </div>
+			                                            <label class="col-lg-2 control-label">Distrito</label>
+			                                            <div class="col-lg-2">
+			                                                <select id="distrito" required name="distrito" class="form-control"></select>
+			                                            </div>
+			                                        </div>
+												</div>
+                                        	</div>
+                                    		</div>
+                                		</div>
+                            	</div>
+                        
+                    		</div>
+                    		<div class="form-group">
+                            	<div class="col-lg-12 text-right">
+                                  	<input class="btn btn-primary" type="submit" value="Grabar Cliente">
+                                	<a href="/admin/user" class="btn btn-warning" >Cancelar</a>
+                            	</div>
+                            </div>
+                    	</form>
+                    </div>
+                
+                    <div class="footer">
+                        <div>
+                            <strong>Copyright</strong> CompuFy Solutions &copy; 2017
+                        </div>
+                    </div>
+
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/js_basics :: assets"></div>	
+    <script type="text/javascript">
+    $(function() {    	
+		var ubigeo = $('#ubigeo').val();
+		if(ubigeo != ""){ populateSelect('provincia');populateSelect('distrito'); }
+		function populateSelect(tipo){
+			$.ajax({
+				url : "/admin/ubigeo/"+tipo+"/"+ ubigeo.substring(0,2) +"/"+ubigeo.substring(0,4),	dataType : "json",
+				success : function(ubigeos) {
+					var option = "<option>-- Seleccione --</option>";
+					for ( var ubi in ubigeos) {
+						var sel = (ubigeo !== "" && ubigeo.indexOf(ubigeos[ubi][0])) != -1 ? ' selected ': '';
+						option += "<option value='"	+ ubigeos[ubi][0] + "' " + sel + ">" + ubigeos[ubi][1] + "</option>";
+					}
+					$("#"+tipo).html(option);
+				}
+			});
+		}		
+		$('#departamento').change(function() {
+			ubigeo=$(this).val();
+			populateSelect('provincia');
+			$('#distrito').empty().append("<option>-- Seleccione --</option>");$('#provincia').focus().val(0);
+		});
+		$('#provincia').change(function() {
+			ubigeo=$(this).val();
+			populateSelect('distrito');
+			$('#distrito').val(0).focus();			
+		});
+		$('#distrito').change(function() {
+			$('#ubigeo').val($(this).val());
+		});
+	});
+    </script>
+</body>
+</html>

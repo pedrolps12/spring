@@ -1,0 +1,57 @@
+body{
+    background: #fff;
+    background: url(../../images/pattern/combg.jpg) no-repeat fixed center center/cover #333;
+}
+.box{
+    width: 1230px;
+    margin: 0 auto;
+    background: #fff;
+}
+body.pat1{
+    background: url(../../images/pattern/p1.png) repeat fixed center center #fff;
+}
+body.pat2{
+    background: url(../../images/pattern/p2.png) repeat fixed center center #4c4c4c;
+}
+body.pat3{
+    background: url(../../images/pattern/p3.png) repeat fixed center center #fff;
+}
+body.pat4{
+    background: url(../../images/pattern/p4.png) repeat fixed center center #4c4c4c;
+}
+body.pat5{
+    background: url(../../images/pattern/p5.png) repeat fixed center center #fff;
+}
+body.pat6{
+    background: url(../../images/pattern/p6.png) repeat fixed center center #4c4c4c;
+}
+body.pat7{
+    background: url(../../images/pattern/p7.png) repeat fixed center center #fff;
+}
+body.pat8{
+    background: url(../../images/pattern/p8.png) repeat fixed center center #4c4c4c;
+}
+body.pat9{
+    background: url(../../images/pattern/p9.png) repeat fixed center center #fff;
+}
+body.pat10{
+    background: url(../../images/pattern/p10.png) repeat fixed center center #4c4c4c;
+}
+@media(min-width:1220px) and (max-width:1440px){
+    .fixedHeader {
+        left: auto;
+        right: auto;
+        width: 91.2%;
+        margin: 0 auto;
+    }
+    .mainnav1 ul.sub-menu, .mainnav3 ul.sub-menu{
+        left: 70%;
+    }
+}
+@media(min-width:1441px) and (max-width:2565px){
+    .fixedHeader {
+        left: auto;
+        right: auto;
+        width: 64.7%;
+    }
+}

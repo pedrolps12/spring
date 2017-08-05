@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<!-- Mirrored from themewar.com/html/crown/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Jun 2017 12:09:45 GMT -->
+<head>
+        <title>Compufy - Contáctenos - Equipo Informático</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width"/>
+		<!-- CSS - CLIENT -->    
+    	<div th:replace="fragments/css_client :: assets"></div>
+	    
+    </head>
+    <body>
+        
+        <div class="box">
+        	<!-- HEADER -->    
+    		<div th:replace="fragments/header_client :: header"></div>
+            
+			<!--contact info start-->
+            <section class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcrumbs">
+                                <a th:href="@{/client/home}" href="index-2.html">Home</a> / <span>Contáctenos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row contactWrap">
+                        <div class="col-sm-4 text-center">
+                            <div class="singleAdds">
+                                <i class="fa fa-map-marker"></i>
+                                <h4>Nuestra Dirección</h4>
+                                <p>907 Rainbow, Linh Dam, Ha Noi, Viet Nam</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="singleAdds">
+                                <i class="fa fa-envelope-o"></i>
+                                <h4>Nuestro email</h4>
+                                <p>pedrolps@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="singleAdds">
+                                <i class="fa fa-phone"></i>
+                                <h4>Nuestro telefono</h4>
+                                <p>Haga su pedido al:</p>
+                                <p>(01) 456 23 23</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--contact info End-->
+
+            <!--map start-->
+            <section class="mapSection bggray">
+                <div id="map" style="width: 51%"></div>
+                <div class="container">       
+                    <div class="col-sm-6 pull-right">
+                        <div class="contactForm">
+                            <h3 class="contactTitle">Envienos un mensaje</h3>
+                            <form  method="post" action="#" id="contactForm">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>Nombre</label>
+                                        <input type="text" id="con_name" name="con_name" class="required">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Correo</label>
+                                        <input type="email" id="con_email" name="con_email" class="required">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <label>Mensaje</label>
+                                        <textarea id="con_message" name="con_message" class="required"></textarea>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button class="montserrat" id="con_submit" type="submit">enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--map End-->
+
+            <!-- FOOTER -->    
+    		<div th:replace="fragments/footer_client :: footer"></div>
+            
+        </div>
+
+		<!-- JS - CLIENT -->    
+    	<div th:replace="fragments/js_client :: assets"></div>
+        
+    </body>
+</html>

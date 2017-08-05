@@ -1,0 +1,56 @@
+.switchTittle, .headerSearch button, .mainnav1 ul li.active > a, .mainnav1 ul li.active > a:hover, 
+.tp-rightarrow.default.round:hover::after, .tp-leftarrow.default.round:hover::before, .showit,.cartBtnh.home4 a:hover i,
+.tabMenu ul li.active a, .tabMenu ul li a:hover, .brandImg::after, .singleInfo, .newletter button:hover,
+.fbtn:hover, .singleMegaInfo i, .megaItems h3::before, .tabnavStyle1 li.active a,.ProductCaro.owl-theme .owl-controls .owl-buttons div:hover,
+#blogCaro.owl-theme .owl-controls .owl-buttons div:hover, #onsallCaro.owl-theme .owl-controls .owl-buttons div:hover, 
+#h4productCaro.owl-theme .owl-controls .owl-buttons div:hover, .thumbProCaro.owl-theme .owl-controls .owl-buttons div:hover,
+.tabnavStyle1 li:hover a, .btnCart a:hover, .proBtn.new a, .SecTitle, .prolavel2.pro, .catBtn, .slider2 .tp-rightarrow.default.round:hover::after, 
+.slider2 .tp-leftarrow.default.round:hover::before, .readmoreBtn:hover, .singleInfo2:hover, .singleInfo3:hover,
+.SecTitle2, .SecTitle2, .catagoriesList2 a.catBtn2, .crownbtn_squre, .newslaSocial, .newletter2 button, .livechat a:hover,
+.blogHover a, .paginations span.current, .postComTitle::after, .comForm button, .gridSidebar h3.widgetTitle::after, .navigations a:hover, 
+.navigations span:hover, .price_slider_wrapper button:hover, .cartbutton a:hover, .proTitle4::before, .proTabDec li::before,
+.reviewForm button:hover, .sinRatting input[type="checkbox"]:checked + label::before, .producthead h2::after, .optionTitle::before,
+.headdingTitle::after, .btnBlack:hover, .btnOrange, .verifyMenu span.active, .headdingTitle2::after, .keepLogin label::before,
+.sameAdds label::before, .wishlist_table .product-add-to-cart > a:hover, .wishlist_table .product-add-to-cart > a.active,
+.contactForm button, .skill3, .crownBtn:hover, .singleProduct4 .proBtn.new a, .lobSlider.owl-theme .owl-controls .owl-page.active span
+{
+    background: #89b927;
+}
+
+
+a:hover, .mainnav1 ul li:hover > a, .footerlink ul li a:hover ,.fbtn, .copypera a:hover, .fotnav ul li a:hover, 
+.tabnavStyle2 li.active a, .proBtn.regl a:hover, .blogTitle2 a:hover, .bMauthor a:hover, .metaOption a:hover,
+#catToggle ul li a:hover, .socialCopyright a:hover, .copypera2 a, .customer_serLink li a:hover, .aboul_link li a:hover, 
+.mainnav2 ul li:hover > a, .fixedHeader .mainnav2 ul li:hover > a, .headerTop2 .singleAccInfo a:hover, .carth4 a:hover,
+.mainnav3 ul li.active > a, .mainnav3 ul li.active > a:hover, .catagoriesList2 ul li a:hover, .rev4Con h2.sl4h2l,
+.singDeCont h2, .mainnav3 ul li:hover > a, .bannerBgCont p, .blog_meta a, .share_social a:hover, .Share_tag p a,
+.copypera3 a:hover, .copyriMenu ul li a:hover, .breadcrumbs span, .sComform label sup, .proTabDec li.active a, 
+.proTabDec li:hover a, .sinRatting label:hover, .sinRatting input[type="checkbox"]:checked + label, .accountMenu ul li a:hover,
+.membersSocial a:hover, .errInnercon a, .tabnavStyle2 li a:hover, .singleAccInfo2 a:hover
+{
+    color: #89b927;
+}
+
+.megaMenu .megaItems ul li a:hover
+{
+     color: #89b927 !important;
+}
+
+.fbtn, #brandsCaro::before, .catagoriesList2, .blog_bauthor img, #proDetCaro .carousel-indicators li.active,
+.sinRatting input[type="checkbox"]:checked + label::before, .woocommerce-checkout-payment ul li input[type="radio"]:checked + label::before,
+.teamImg, .lobSlider.owl-theme .owl-controls .owl-page.active span
+{
+    border-color: #89b927;
+}
+
+.proBtn.pro a:hover, .proBtn.pro:hover a{
+    background: #89b927 !important;
+}
+
+.singleInfo{
+    border-color: #688d1c;
+}
+
+.livechat:hover:after{
+    border-color: #89b927 transparent transparent transparent;
+}

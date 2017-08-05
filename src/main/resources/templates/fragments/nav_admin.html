@@ -1,0 +1,17 @@
+<div th:fragment="nav" class="row border-bottom">
+    <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>                    
+            <div style="margin-bottom:0;width:300px;" class="form-group navbar-form-custom">
+                <label style="line-height: 45px;color:white;font-size:30px;" class="form-control">CompuFy Solutions</label>
+            </div>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="li1" >
+            	<form th:action="@{/logout}" method="post">
+                	<button class="la1"  type="submit"><i class="fa fa-sign-out"></i> Cerrar Sesión</button>                	
+        		</form>
+            </li>            
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROYECTO | USUARIOS</title>
+<div th:replace="fragments/css_basics :: assets"></div>
+</head>
+<body class="fixed-nav md-skin">
+	<div id="wrapper">
+		<!-- SIDEBAR -->
+		<div th:replace="fragments/sidebar_admin :: sidebar"></div>
+		<!-- END SIDEBAR-->
+		<div id="page-wrapper" class="gray-bg">
+			<!-- NAV -->
+			<div th:replace="fragments/nav_admin :: nav"></div>
+			<!-- END NAV-->
+			<div class="wrapper wrapper-content ">
+				<div class="row">
+					<div class="col-lg-12 animated fadeInDown">
+						<form method="POST" th:action="@{~/admin/user/}"	th:object="${user}" name="frmAddUser" class="form-horizontal">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h2>Agregar Usuario</h2><span style="line-height:" class="label label-primary">CS+</span>
+									
+									<div class="ibox-tools">
+										<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+										</a> 
+									</div>
+								</div>
+								<div class="ibox-content">
+									<input type="hidden" name="ubigeo" id="ubigeo" > 
+									<input type="hidden" name="id" th:value="${user.id}">
+									<div class="row">
+										<div class="col-lg-12 ">
+											<div class="panel panel-default">
+												<div class="panel-heading">Cuenta de Usuario</div>
+												<div class="panel-body">
+													<div class="form-group">
+														<label class="col-lg-2 control-label" for="email">Correo <span class="wpjb-red">*</span>
+														</label>
+														<div class="col-lg-10">
+															<input name="email" id="email" required autofocus type="text" placeholder="Nombres" class="form-control">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-2 control-label" for="password">Contraseña <span class="wpjb-red">*</span>
+														</label>
+														<div class="col-lg-10">
+															<input name="password" id="password" required type="password" class="form-control">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-2 control-label" for="passwordrepeat">Repetir Contraseña <span class="wpjb-red">*</span>
+														</label>
+														<div class="col-lg-4">
+															<input name="passwordrepeat" id="passwordrepeat" type="password" class="form-control">
+															<span id="repeat" style="display:none;" class="help-block m-b-none">Las contraseñas ingresadas no coinciden.</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 ">
+											<div class="panel panel-default">
+												<div class="panel-heading">Datos Personales</div>
+												<div class="panel-body">
+													<div class="form-group">
+														<label class="col-lg-2 control-label" for="firstname">Nombres</label>
+														<div class="col-lg-10">
+															<input name="firstname" id="firstname" required autofocus type="text" placeholder="Nombres" class="form-control">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-2 control-label" for="lastname">Apellidos</label>
+														<div class="col-lg-10">
+															<input name="lastname" id="lastname" required type="text" placeholder="Apellidos" class="form-control">
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="col-lg-2 control-label" for="departamento">Departamento</label>
+														<div class="col-lg-2">
+															<select name="departamento" required id="departamento" class="form-control">
+			                                                	<option th:each="dept : ${departamentos}"  th:value="${dept[0]}" th:text="${dept[1]}">
+			                                                	</option>
+			                                                </select>
+														</div>
+														<label class="col-lg-2 control-label" for="provincia">Provincia</label>
+														<div class="col-lg-2">
+															<select id="provincia" class="form-control" required></select>
+														</div>
+														<label class="col-lg-2 control-label" for="distrito">Distrito</label>
+														<div class="col-lg-2">
+															<select id="distrito" class="form-control" required></select>
+														</div>
+													</div>
+													<!-- 
+													<div class="form-group">
+														<label class="col-lg-2 control-label first">Fecha de Nac.</label>
+														<div class="col-lg-4">
+															<input name="birthdate" id="birthdate" required type="date" class="form-control">
+														</div>
+													</div>
+													 -->
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-12 text-right">
+									<input class="btn btn-info" type="submit" value="Grabar Cliente">
+									<a href="/admin/user" class="btn btn-warning" >Cancelar</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<div class="footer ">
+					<div>
+						<strong>Copyright</strong> CompuFy Solutions &copy; 2017
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/js_basics :: assets"></div>
+	<script type="text/javascript">
+		$(function() {
+			var ubigeo = $('#ubigeo').val();
+			
+			function populateSelect(tipo){
+				$.ajax({
+					url : "/admin/ubigeo/"+tipo+"/"+ ubigeo.substring(0,2) +"/"+ubigeo.substring(0,4),	dataType : "json",
+					success : function(ubigeos) {
+						var option = "<option>-- Seleccione --</option>";
+						for ( var ubi in ubigeos) {
+							var sel = (ubigeo !== "" && ubigeo.indexOf(ubigeos[ubi][0])) != -1 ? ' selected ': '';
+							option += "<option value='"	+ ubigeos[ubi][0] + "' " + sel + ">" + ubigeos[ubi][1] + "</option>";
+						}
+						$("#"+tipo).html(option);
+					}
+				});
+			}
+			$('#passwordrepeat').change(function (){
+				repeat();
+			});
+			$('#password').change(function (){
+				repeat();
+			});
+			function repeat(){
+				var pass1 = $('#passwordrepeat'); var pass2 = $('#password');
+				if(pass1.val() != "" && pass2.val() != ""){
+					if(pass1.val()!=pass2.val()){
+						pass1.parent().parent().addClass('has-error');
+						pass2.parent().parent().addClass('has-error');
+						$('#repeat').show();
+					}else{
+						pass1.parent().parent().removeClass('has-error');
+						pass2.parent().parent().removeClass('has-error');
+						$('#repeat').hide();
+					}
+				}
+			}
+			$('#departamento').change(function() {
+				ubigeo=$(this).val();
+				populateSelect('provincia');
+				$('#distrito').empty().append("<option>-- Seleccione --</option>");$('#provincia').focus().val(0);
+			});
+			$('#provincia').change(function() {
+				ubigeo=$(this).val();
+				populateSelect('distrito');
+				$('#distrito').val(0).focus();				
+			});
+			$('#distrito').change(function() {
+				$('#ubigeo').val($(this).val());
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/*
+ *
+ *   INSPINIA - Responsive Admin Theme
+ *   version 2.7.1
+ *
+*/
+// Google Fonts
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+// Variables, Mixins
+@import "variables";
+@import "mixins";
+
+// INSPINIA Theme Elements
+@import "typography";
+@import "navigation";
+@import "top_navigation";
+@import "buttons";
+@import "badges_labels";
+@import "elements";
+@import "sidebar";
+@import "base";
+@import "pages";
+@import "chat";
+@import "metismenu";
+@import "spinners";
+
+// Landing page styles
+@import "landing";
+
+// RTL Support
+@import "rtl";
+
+// For demo only - config box style
+@import "theme-config";
+
+// INSPINIA Skins
+@import "skins";
+@import "md-skin";
+
+// Media query style
+@import "media";
+
+// Custom style
+// Your custom style to override base style
+@import "custom";
+
+// Clear layout on print mode
+@media print {
+  nav.navbar-static-side {
+    display: none;
+  }
+  body { overflow: visible !important; }
+
+  #page-wrapper {
+    margin: 0;
+  }
+}
+
+.la1{
+	color: #ffffff;
+	background-color: transparent;
+	font-weight: 400;
+	padding: 20px 10px;
+    min-height: 50px;
+    border:0px;
+}
+.li1:hover{
+	background:rgba(50,50,50,0.1);
+}
+
+.row.title{
+	background: #2F4050;	
+	margin-bottom:0px;
+	margin-left:0;
+	margin-right:0;
+}
+
+.control-label.title{
+	padding:10px 10px;	
+	color:white;
+}
+.grupo{
+	border:1px solid #2F4050;
+	padding: 10px;
+}
+.ibox-title h2 {
+	display:inline-block;
+	text-overflow: ellipsis;
+    float: left;
+    margin: 0 0 7px;
+    padding: 0;	
+}
+.wpjb-red {
+    font-weight: bold;
+    color: red;
+}
+table.table{
+	width:100% !important;
+}
