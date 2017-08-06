@@ -12,6 +12,6 @@ public interface UserService {
 	public void editUser(User user);
 	
 	public void deleteUser(int id);
-	public abstract List<User> listAllUsers();
+	public List<User> listAllUsers();
 	
 }

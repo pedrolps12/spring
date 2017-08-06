@@ -10,6 +10,6 @@ public interface CategoryService {
 	public void saveCategory(Category Category);
 	
 	public void deleteCategory(int id);
-	public abstract List<Category> listAllCategories();
+	public List<Category> listAllCategories();
 	
 }
