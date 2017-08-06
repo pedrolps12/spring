@@ -24,7 +24,7 @@ public class CategoryController {
 	
 	@Autowired
 	CategoryService categoryService;
-
+		
 	@GetMapping("")
 	public ModelAndView listCategory(){
 		ModelAndView mav = new ModelAndView(VIEW.category_list);

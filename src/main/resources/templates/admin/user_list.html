@@ -113,12 +113,25 @@
                 responsive: true,
             });
 			*/
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
 			var table = $('.dataTables-user').DataTable({
-				"ajax": "/admin/user/table",
 				"language": {
 		            "url": "/js/Spanish.json",
 		        },
-		        //"processing": true,
+		        //"ajax": "/admin/user/table",
+		        'ajax': {
+					'contentType': 'application/json',
+					'url': '/admin/user/table',
+					
+					'type': 'POST',
+					beforeSend: function(xhr) {
+				    	xhr.setRequestHeader(header, token);
+				    },
+					'data': function(d) {
+						return JSON.stringify(d);
+					}
+				},
 		        "serverSide": true,
 				columns: [
 					{ data: "id", "className": "text-center",width:40, "title":"Item"

@@ -7,8 +7,5 @@ import project.model.Category;
 
 @Repository("categoryRepository")
 public interface CategoryRepository extends DataTablesRepository<Category, Integer> {
-	public abstract Category findById(int id);
-	
-	
-	
+	public abstract Category findById(int id);	
 }

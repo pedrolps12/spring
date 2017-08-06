@@ -17,11 +17,12 @@ import project.repository.CategoryRepository;
 public class CategoryRestController {
 	
 	@Autowired
-	CategoryRepository categoryRepository;
+	private CategoryRepository categoryRepository;
 	
-	@GetMapping("/admin/category/table")
 	@JsonView(DataTablesOutput.View.class)
-	public DataTablesOutput<Category> getAll(@Valid DataTablesInput input){
+	@GetMapping("/admin/category/table")	
+	public DataTablesOutput<Category> getAllCategory(@Valid DataTablesInput input){
 		return categoryRepository.findAll(input);
 	}
+
 }
