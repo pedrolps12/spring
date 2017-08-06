@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                                 <div class="ibox-content">
-                                    <form method="POST"  action="#" th:action="@{~/admin/category/save/}" th:object="${category}" name="frmAddCategory" class="form-horizontal" >
+                                    <form th:method="PUT" th:action="@{/admin/category/__${category.id}__}"  action="#" th:object="${category}" name="frmAddCategory" class="form-horizontal" >
                                         <input type="hidden"  name="id" th:field="${category.id}" th:value="${category.id}" />                                         
                                         <div class="row">
                                             <div class="col-lg-6">

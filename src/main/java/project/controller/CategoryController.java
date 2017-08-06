@@ -52,8 +52,8 @@ public class CategoryController {
 	@PutMapping("/{id}")
 	public String updateCategory(@PathVariable int id, HttpServletRequest request){		
 		Category category = categoryService.findCategoryById(id);
-		category.setName(request.getParameter("firstname"));
-		category.setDescription(request.getParameter("lastname"));
+		category.setName(request.getParameter("name"));
+		category.setDescription(request.getParameter("description"));
 		categoryService.saveCategory(category);		
 		return "redirect:/admin/category";		
 	}	
