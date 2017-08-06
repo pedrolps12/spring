@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import project.model.Product;;
+
 @Entity
 public class Category {
 
@@ -20,9 +22,19 @@ public class Category {
 	private String name;
 	
 
-	
 	@Column(name = "description")
 	private String description;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="category")
+	private Set<Product> products;
+	
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
 
 	public int getId() {
 		return id;
